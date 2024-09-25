@@ -4,6 +4,7 @@ from collections.abc import Callable
 
 import gdsfactory as gf
 from gdsfactory.component import Component
+from gdsfactory.components.wire import wire_corner
 from gdsfactory.components.pad import pad_rectangular
 from gdsfactory.components.straight_heater_metal import straight_heater_metal
 from gdsfactory.port import select_ports_electrical
@@ -22,7 +23,7 @@ def add_pads_bot(
     cross_section: CrossSectionSpec = "metal_routing",
     pad_port_name: str = "e1",
     pad: ComponentSpec = pad_rectangular,
-    bend: ComponentSpec = "wire_corner",
+    bend: ComponentSpec = wire_corner,
     straight_separation: float = 15.0,
     pad_spacing: float | str = "pad_spacing",
     optical_routing_type: int | None = 1,
