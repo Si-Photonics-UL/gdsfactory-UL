@@ -95,7 +95,7 @@ def route_bundle(
     taper: ComponentSpec | None = None,
     port_type: str | None = None,
     collision_check_layers: LayerSpecs | None = None,
-    on_collision: str | None = "show_error",
+    on_collision: str | None = None,# "show_error", put back original value
     bboxes: list[kf.kdb.Box] | None = None,
     allow_width_mismatch: bool = False,
     radius: float | None = None,

@@ -34,7 +34,8 @@ def import_gds(
     options = kf.kcell.load_layout_options()
     options.warn_level = 0
     temp_kcl.read(gdspath, options=options)
-    cellname = cellname or temp_kcl.top_cell().name
+    if cellname is None:
+        cellname = cellname or temp_kcl.top_cell().name
     kcell = temp_kcl[cellname]
     c = kcell_to_component(kcell)
     for pp in post_process or []:
