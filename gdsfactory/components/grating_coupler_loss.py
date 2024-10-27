@@ -242,7 +242,7 @@ def grating_coupler_loss_fiber_array(
 
 @cell
 def grating_coupler_loss_fiber_array4(
-    pitch: float = 127.0, grating_coupler: ComponentSpec = grating_coupler_te, **kwargs
+    pitch: float = 127.0, grating_couplers= [grating_coupler_te, grating_coupler_te, grating_coupler_te], **kwargs
 ) -> Component:
     """Returns a grating coupler test structure for fiber array.
 
@@ -258,9 +258,9 @@ def grating_coupler_loss_fiber_array4(
         kwargs: cross_section settings.
     """
     c = gf.Component()
-    c1 = loss_deembedding_ch13_24(grating_coupler=grating_coupler, **kwargs)
-    c2 = loss_deembedding_ch14_23(grating_coupler=grating_coupler, **kwargs)
-    c3 = loss_deembedding_ch12_34(grating_coupler=grating_coupler, **kwargs)
+    c1 = loss_deembedding_ch13_24(grating_coupler=grating_couplers[0], **kwargs)
+    c2 = loss_deembedding_ch14_23(grating_coupler=grating_couplers[1], **kwargs)
+    c3 = loss_deembedding_ch12_34(grating_coupler=grating_couplers[2], **kwargs)
     c.add_ref(c1)
     c2 = c.add_ref(c2)
     c3 = c.add_ref(c3)

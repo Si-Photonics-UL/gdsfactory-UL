@@ -95,18 +95,20 @@ def interdigital_capacitor(
     c.add_polygon(points_1, layer=layer)
     c.add_polygon(points_2, layer=layer)
     c.add_port(
-        name="o1",
+        name="e1",
         center=(0, height / 2),
         width=thickness,
         orientation=180,
         layer=layer,
+        port_type="electrical",
     )
     c.add_port(
-        name="o2",
+        name="e2",
         center=(width, height / 2),
         width=thickness,
         orientation=0,
         layer=layer,
+        port_type="electrical",
     )
     return c
 
